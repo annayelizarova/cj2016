@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recalls</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <h1>Recall data for 2016</h1>
+  <p>There are {{recalls_count}} recalls in 2016.</p>
+
+	<table border="1" style="width:100%">
+      {% for r in recalls %}
+      	<link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <tr>
+          <td><a href="{{r.URL}}"><img src="{{r.Images[0].URL}}" height="100" width="100"></a></td>
+          <td><a href="{{r.URL}}">{{r.Title}}</a><p>Injuries: {{r.Injuries[0]}}</p></td>
+          <td>{{r.LastPublishDate}}</td>
+        </tr>        
+      {% endfor %}    
+  	</table>
+
+</body>
